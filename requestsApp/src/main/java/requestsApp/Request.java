@@ -1,8 +1,11 @@
 package requestsApp;
 
-import javax.persistence.*;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import java.time.OffsetDateTime;
 
 @Entity
 public class Request {
@@ -10,45 +13,49 @@ public class Request {
     @GeneratedValue
     private Long id;
 
-    private final long contactId;
-    private final long APPLICATION_ID;
-    private final Calendar DT_CREATED ;
-    private final String PRODUCT_NAME;
+    @JsonProperty("CONTACT_ID")
+    private long contactId;
 
-    public Request(){
-        this.contactId = 0;
-        this.APPLICATION_ID = 0;
-        this.DT_CREATED = new GregorianCalendar(1970,1,1);
-        this.PRODUCT_NAME = "";
-    }
-    public Request(long contactId, long APPLICATION_ID, Calendar DT_CREATED, String PRODUCT_NAME) {
+    @JsonProperty("APPLICATION_ID")
+    private long applicationId;
+
+    @JsonProperty("DT_CREATED")
+    private OffsetDateTime dtCreated;
+
+    @JsonProperty("PRODUCT_NAME")
+    private String productName;
+
+    public Request(){}
+
+    public Request(long contactId, long applicationId, OffsetDateTime dtCreated, String productName) {
         this.contactId = contactId;
-        this.APPLICATION_ID = APPLICATION_ID;
-        this.DT_CREATED = DT_CREATED;
-        this.PRODUCT_NAME = PRODUCT_NAME;
+        this.applicationId = applicationId;
+        this.dtCreated = dtCreated;
+        this.productName = productName;
     }
+
 
     public long getContactId() {
         return contactId;
     }
 
-    public long getAPPLICATION_ID() {
-        return APPLICATION_ID;
+    public long getApplicationId() {
+        return applicationId;
     }
 
-    public Calendar getDT_CREATED() {
-        return DT_CREATED;
+    public OffsetDateTime getDtCreated() {
+        return dtCreated;
     }
 
-    public String getPRODUCT_NAME() {
-        return PRODUCT_NAME;
+    public String getProductName() {
+        return productName;
     }
 
     @Override
     public String toString() {
         return String.format(
                 "Request [contactId=%d, applicationId=%d, date=%tc, productName='%s']",
-                contactId, APPLICATION_ID, DT_CREATED, PRODUCT_NAME);
+                contactId, applicationId, dtCreated, productName);
     }
 
 }
