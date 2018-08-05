@@ -14,7 +14,7 @@ public class SimplestGetPOJOExample {
 
         if(list != null){
             for (Employee e: list) {
-                System.out.println("Employee: " + e.getEmpNo() + "-" + e.getEmpName());
+                System.out.println(e.toString());
             }
         }
     }

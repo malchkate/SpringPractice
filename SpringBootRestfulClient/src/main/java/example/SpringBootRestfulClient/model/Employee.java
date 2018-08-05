@@ -1,9 +1,16 @@
 package example.SpringBootRestfulClient.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Employee {
+
+    @JsonProperty("Employee number")
     private String empNo;
+    @JsonProperty("Name")
     private String empName;
+    @JsonProperty("Position")
     private String position;
+
 
     public Employee(){}
 
@@ -35,5 +42,11 @@ public class Employee {
 
     public void setPosition(String position) {
         this.position = position;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Employee [Number = %s, Name = %s, Position = %s]",
+                empNo, empName, position);
     }
 }
