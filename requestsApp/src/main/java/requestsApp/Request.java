@@ -6,8 +6,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.time.OffsetDateTime;
+import lombok.Data;
 
-
+@Data
 @Entity
 public class Request {
     @Id
@@ -33,23 +34,6 @@ public class Request {
         this.applicationId = applicationId;
         this.dtCreated = dtCreated;
         this.productName = productName;
-    }
-
-
-    public long getContactId() {
-        return contactId;
-    }
-
-    public long getApplicationId() {
-        return applicationId;
-    }
-
-    public OffsetDateTime getDtCreated() {
-        return dtCreated;
-    }
-
-    public String getProductName() {
-        return productName;
     }
 
     @Override
