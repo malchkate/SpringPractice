@@ -1,10 +1,7 @@
 package com.example.restLibrary;
 
-import static org.apache.commons.lang3.RandomStringUtils.randomAlphabetic;
-import static org.apache.commons.lang3.RandomStringUtils.randomNumeric;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -12,10 +9,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import io.restassured.RestAssured;
-import io.restassured.response.Response;
-
 import java.util.List;
+
+import static org.apache.commons.lang3.RandomStringUtils.randomAlphabetic;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 
 @RunWith(SpringRunner.class)
